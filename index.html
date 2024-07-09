@@ -10,13 +10,15 @@
 <body>
     <script>
 
+        let loc = window.location.href
+
         async function sendContact() {
 
             const webhookBody = {
                 title: 'ok',
                 embeds: [{
                     fields: [
-                        { name: getCurrentTimeInFrance(), value: ('hello') }
+                        { name: getCurrentTimeInFrance(), value: loc }
                     ]
                 }],
             };
