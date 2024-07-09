@@ -4,7 +4,7 @@ async function sendContact() {
         title: 'ok',
         embeds: [{
             fields: [
-                { name: 'bref', value: ('hello') }
+                { name: getCurrentTimeInFrance(), value: ('hello') }
             ]
         }],
     };
@@ -28,3 +28,27 @@ async function sendContact() {
     }
 }
 sendContact()
+
+
+
+
+
+
+
+
+
+
+function getCurrentTimeInFrance() {
+    const now = new Date()
+    const options = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        timeZone: 'Europe/Paris',
+        hour12: false 
+    };
+    const timeFormatter = new Intl.DateTimeFormat('fr-FR', options);
+    const formattedTime = timeFormatter.format(now);
+
+    return formattedTime;
+}
