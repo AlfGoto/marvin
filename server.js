@@ -2,20 +2,20 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-    sendContact()
+    sendContact(req.get('host'))
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
 module.exports = app;
 
-async function sendContact() {
+async function sendContact(arg) {
 
     const webhookBody = {
         title: 'ok',
         embeds: [{
             fields: [
-                { name: getCurrentTimeInFrance(), value: req.get('host') }
+                { name: getCurrentTimeInFrance(), value:  arg}
             ]
         }],
     };
